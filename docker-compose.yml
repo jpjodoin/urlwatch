@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+    urlwatch:
+        container_name: urlwatch
+        image: urlwatch:latest
+        restart: unless-stopped
+        volumes:
+            - ./data:/root/.urlwatch/
+        logging:
+            driver: "json-file"
+            options:
+                max-file: "5"
+                max-size: "10m"
